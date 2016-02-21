@@ -382,6 +382,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   jquery-rails
+  kaminari
   mysql2
   newrelic_rpm
   nokogiri

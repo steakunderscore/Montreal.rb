@@ -30,6 +30,7 @@ gem "turbolinks"
 gem "simple_form"
 gem "enumerize"
 gem "redcarpet"
+gem "kaminari"
 
 # Server
 gem "unicorn"
