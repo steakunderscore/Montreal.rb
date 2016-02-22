@@ -1,1 +1,37 @@
-<h1>Events#index</h1>
+<h1>Upcoming Events</h1>
+<% @upcoming_events.each do |event| %>
+  <div class="event clearfix">
+    <h2 class="event-title"><%= link_to event.title_with_date, event_path(event) %></h2>
+    <p class="meta">
+      Starts at <%= time_ago_in_words(event.starts_at) %> ago
+    </p>
+    <div class="event-introduction">
+      <%= event.introduction %>
+    </div>
+    <div class="event-conclusion">
+      <%= event.conclusion %>
+    </div>
+    <p class="meta">
+      Hosted at <%= event.location.name %> ago
+    </p>
+  </div>
+<% end %>
+
+<h1>Past Events</h1>
+<% @past_events.each do |event| %>
+  <div class="event clearfix">
+    <h2 class="event-title"><%= link_to event.title_with_date, event_path(event) %></h2>
+    <p class="meta">
+      Started at <%= time_ago_in_words(event.starts_at) %> ago
+    </p>
+    <div class="event-introduction">
+      <%= event.introduction %>
+    </div>
+    <div class="event-conclusion">
+      <%= event.conclusion %>
+    </div>
+    <p class="meta">
+      Hosted at <%= event.location.name %> ago
+    </p>
+  </div>
+<% end %>

@@ -14,6 +14,7 @@
     <%= paginate @news_items, :param_name => "news_item_page" %>
   </div>
   <div class="col-md-3">
+    <h2><%= link_to "Events", events_path %></h2>
     <% @events.each do |event| %>
       <div class="post clearfix">
         <h2 class="post-title"><%= link_to event.title, event_path(event) %></h2>
