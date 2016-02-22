@@ -1,12 +1,27 @@
-<% @news_items.each do |news_item| %>
-  <div class="post clearfix">
-    <h2 class="post-title"><%= link_to news_item.title, news_item_path(news_item) %></h2>
-    <p class="meta">
-      Posted <%= time_ago_in_words(news_item.published_at) %> ago
-    </p>
-    <div class="post-body">
-      <%= render_markdown_as_html news_item.body %>
-    </div>
+<div class="row">
+  <div class="col-md-9">
+    <% @news_items.each do |news_item| %>
+      <div class="post clearfix">
+        <h2 class="post-title"><%= link_to news_item.title, news_item_path(news_item) %></h2>
+        <p class="meta">
+          Posted <%= time_ago_in_words(news_item.published_at) %> ago
+        </p>
+        <div class="post-body">
+          <%= render_markdown_as_html news_item.body %>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @news_items, :param_name => "news_item_page" %>
   </div>
-<% end %>
-<%= paginate @news_items %>
+  <div class="col-md-3">
+    <% @events.each do |event| %>
+      <div class="post clearfix">
+        <h2 class="post-title"><%= link_to event.title, event_path(event) %></h2>
+        <div class="post-body">
+          Hosted at: <%= event.location.name %>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate @events, :param_name => "event_page" %>
+  </div>
+</div>
